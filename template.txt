@@ -45,7 +45,7 @@ likely career options:
 	mental health: therapist, psychologist, priestess
 	language: editor, linguist, language researcher, language teacher
 	hospitality: innkeeper, bed and breakfast owner, restauranteur, cook, baker, brewer
-	art: illustrator, illuminator, jeweler, seamstress, comic artist, singer
+	art: illustrator, illuminator, jeweler, seamstress, comic artist, singer, poet
 if there is magic:
 	affinity for support-role enabling powers
 	affinity for powers that enable clear, effectice communication
