@@ -109,9 +109,9 @@
   Where Have All The Flowers Gone
   Who By Fire
   Woe to The People of Order -->
-
   <body>
   <div><p><h1 class="title"><a id="top">Song Book</a></h1></p>
+    <button id="toggle">Toggle Dark/Light</button>
     <button id="random">Random Song</button>
     <div id="toc">Generating table of contents</div>
     <p><hr></hr></p>
@@ -1132,8 +1132,8 @@
 
       <p><hr></hr></p>
     </div>
-    <div><p><h2 class="song" id="Cheshire-Kitten">Cheshire Kitten</h2>
-      (by SJ Tucker)<br>
+    <div><p><h2 class="song" id="Cheshire-Kitten">Cheshire Kitten</h2></p>
+      <p>(by SJ Tucker)<br>
       <em>Capo iii</em></p>
 
       <p><ruby>I<rt>Am</rt></ruby> grew up seeing things a little <ruby>diff<rt>G</rt></ruby>erently<br>
@@ -6560,6 +6560,35 @@ $("#random").on("click", function(){
     "#" + $('h2[class="song"]').get(
       Math.floor(Math.random()*$('h2[class="song"]').length)
     ).id
- 
 })
+
+function modeStyle(mode) {
+    if (mode) {
+        $('body').css({'backgroundColor':'black', 'color':'grey'});
+        $('a[href]').css({'color':'cornflowerblue'});
+    } else {
+        $('body').css({'backgroundColor':'white', 'color':'black'});
+        $('a[href]').css({'color':'blue'});
+    }
+}
+
+function currentMode() {
+    var params = new URLSearchParams(window.location.search);
+    return params.get('mode') == 'dark';
+}
+
+function toggleMode() {
+    var url = new URL(window.location.href);
+    var mode = !currentMode();
+    
+    modeStyle(mode);
+    
+    url.searchParams.set('mode', mode ? 'dark' : 'light');
+    window.history.pushState(null, document.title, url);
+}
+
+modeStyle(currentMode());
+
+$("#toggle").on("click", toggleMode);
+  
 </script>
